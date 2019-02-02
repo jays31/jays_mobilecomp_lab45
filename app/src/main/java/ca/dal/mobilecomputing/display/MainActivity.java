@@ -35,8 +35,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 startActivity(new Intent(mActivity, StudentDetailActivity.class)
-                        .putExtra(StudentDetailActivity.STUDENT_COURSES,
-                                database.getStudentModels().get(arg2).getId()));
+                        .putExtra(StudentDetailActivity.STUDENT_COURSES,        //String; name of the intent.
+                                database.getStudentModels().get(arg2).getId()   //Data: ID number
+                        ));
             }
         });
 

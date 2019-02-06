@@ -11,8 +11,6 @@ import ca.dal.mobilecomputing.adapter.StudentAdapter;
 import ca.dal.mobilecomputing.db.Database;
 
 public class StudentDetailActivity extends AppCompatActivity {
-
-    public static final String STUDENT_COURSES = "student courses";
     private Activity mActivity;
 
     @Override
@@ -20,7 +18,7 @@ public class StudentDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_detail);
 
-        String id = getIntent().getStringExtra(STUDENT_COURSES);
+        String id = getIntent().getStringExtra("studentID");
 
         mActivity = this;
         Toolbar toolbar = findViewById(R.id.toolbar);

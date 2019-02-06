@@ -31,13 +31,14 @@ public class MainActivity extends AppCompatActivity {
         final Database database = new Database();
         studentList.setAdapter(new StudentAdapter(mActivity, database.getStudentModels(), true));
 
+
         studentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                startActivity(new Intent(mActivity, StudentDetailActivity.class)
-                        .putExtra(StudentDetailActivity.STUDENT_COURSES,        //String; name of the intent.
-                                database.getStudentModels().get(arg2).getId()   //Data: ID number
-                        ));
+            public void onItemClick(AdapterView<?> adaptor, View v, int listIndex, long arg3) {
+                Intent detailsIntent = new Intent(MainActivity.this, StudentDetailActivity.class);
+                detailsIntent.putExtra("studentID", database.getStudentModels().get(listIndex).getId());
+
+                startActivity(detailsIntent);
             }
         });
 

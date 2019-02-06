@@ -3,20 +3,15 @@ package ca.dal.mobilecomputing.display;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.List;
-
 import ca.dal.mobilecomputing.R;
-import ca.dal.mobilecomputing.adapter.StudentAdapter;
+import ca.dal.mobilecomputing.adapter.StudentCourseAdapter;
 import ca.dal.mobilecomputing.db.Database;
-import ca.dal.mobilecomputing.model.CourseModel;
 import ca.dal.mobilecomputing.model.StudentModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         ListView studentList = findViewById(R.id.listview_students);
         final Database database = new Database();
-        studentList.setAdapter(new StudentAdapter(mActivity, database.getStudentModels(), true));
+        studentList.setAdapter(new StudentCourseAdapter(mActivity, database.getStudentModels(), true));
 
 
         studentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

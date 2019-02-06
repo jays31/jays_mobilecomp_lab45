@@ -8,7 +8,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import ca.dal.mobilecomputing.R;
-import ca.dal.mobilecomputing.adapter.StudentAdapter;
+import ca.dal.mobilecomputing.adapter.StudentCourseAdapter;
 import ca.dal.mobilecomputing.db.Database;
 
 public class StudentDetailActivity extends AppCompatActivity {
@@ -41,6 +41,6 @@ public class StudentDetailActivity extends AppCompatActivity {
         studentName.setText(name);
         studentID.setText(id);
         studentAge.setText(String.valueOf(age));
-        courseList.setAdapter(new StudentAdapter(mActivity, new Database().getCoursesByStudentId(id)));
+        courseList.setAdapter(new StudentCourseAdapter(mActivity, new Database().getCoursesByStudentId(id)));
     }
 }

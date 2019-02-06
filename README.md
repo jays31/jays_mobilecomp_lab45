@@ -8,7 +8,7 @@ This application is built to allow students to learn about navigating to new act
 
 - Adaptor
 
-StudentAdapter.java converts the Database information into a more usable format.
+StudentCourseAdapter.java converts the Database information into a more usable format. It also inflates ListView cells to match the layout specified in listview_item.xml
 
 - DataBase
 
@@ -25,4 +25,4 @@ CourseModel.java and StudentModel.java are objects used by the database to descr
 
 - Layout
 
-item_student.xml shows the 
+activity_main.xml and activity_student_detail.xml are the pages associated with the activities in the Display folder. The former has content_main.xml nested inside it. listview_item.xml dictates the layout of cells in the ListView items.

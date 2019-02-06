@@ -17,20 +17,20 @@ import ca.dal.mobilecomputing.model.CourseModel;
 import ca.dal.mobilecomputing.model.StudentModel;
 
 
-public class StudentAdapter extends BaseAdapter {
+public class StudentCourseAdapter extends BaseAdapter {
 
     private List<StudentModel> mStudentModelList;
     private List<CourseModel> mCourseModelList;
     private boolean mIsStudent;
     private Activity mActivity;
 
-    public StudentAdapter(Activity activity, List<StudentModel> studentModelList, boolean isStudent) {
+    public StudentCourseAdapter(Activity activity, List<StudentModel> studentModelList, boolean isStudent) {
         this.mActivity = activity;
         this.mStudentModelList = studentModelList;
         mIsStudent = isStudent;
     }
 
-    public StudentAdapter(Activity activity, List<CourseModel> courseModelList) {
+    public StudentCourseAdapter(Activity activity, List<CourseModel> courseModelList) {
         this.mActivity = activity;
         this.mCourseModelList = courseModelList;
     }
@@ -55,7 +55,7 @@ public class StudentAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) mActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         ViewHolder viewholder;
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.item_student, parent, false);
+            convertView = inflater.inflate(R.layout.listview_item, parent, false);
 
             viewholder = new ViewHolder();
 

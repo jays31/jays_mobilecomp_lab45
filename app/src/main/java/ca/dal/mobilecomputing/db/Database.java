@@ -13,15 +13,22 @@ import ca.dal.mobilecomputing.model.StudentModel;
 
 public class Database {
 
-    private static final Map<String, String> STUDENT_DATA = new HashMap<>();
+    private static final Map<String, String> STUDENT_NAME = new HashMap<>();
+    private static final Map<String, Integer> STUDENT_AGE = new HashMap<>();
     private static final Map<String, String> COURSES_DATA = new HashMap<>();
     private List<StudentModel> studentModelList = new ArrayList<>();
     private List<CourseModel> courseModelList = new ArrayList<>();
 
     static {
-        STUDENT_DATA.put("B00773778", "Mihir");
-        STUDENT_DATA.put("B00771723", "Ryan");
-        STUDENT_DATA.put("B00453723", "Omobola");
+        STUDENT_NAME.put("B00773778", "Mihir");
+        STUDENT_NAME.put("B00771723", "Ryan");
+        STUDENT_NAME.put("B00453723", "Omobola");
+    }
+
+    static {
+        STUDENT_AGE.put("B00773778", 63);
+        STUDENT_AGE.put("B00771723", 56);
+        STUDENT_AGE.put("B00453723", 54);
     }
 
     static {
@@ -35,8 +42,8 @@ public class Database {
 
 
     public Database() {
-        for (String key : STUDENT_DATA.keySet()) {
-            studentModelList.add(new StudentModel(key, STUDENT_DATA.get(key)));
+        for (String key : STUDENT_NAME.keySet()) {  //NAME and AGE use the same keyset.
+            studentModelList.add(new StudentModel(key, STUDENT_NAME.get(key), STUDENT_AGE.get(key)));
         }
 
         // Create a list of courses

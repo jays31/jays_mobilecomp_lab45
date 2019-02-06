@@ -22,3 +22,7 @@ MainActivity.java and StudentDetailActivity.java are tied to the two different a
 - Model
 
 CourseModel.java and StudentModel.java are objects used by the database to describe each course/student.
+
+- Layout
+
+item_student.xml shows the 

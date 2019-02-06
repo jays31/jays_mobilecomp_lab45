@@ -11,9 +11,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.util.List;
+
 import ca.dal.mobilecomputing.R;
 import ca.dal.mobilecomputing.adapter.StudentAdapter;
 import ca.dal.mobilecomputing.db.Database;
+import ca.dal.mobilecomputing.model.CourseModel;
+import ca.dal.mobilecomputing.model.StudentModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,7 +40,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adaptor, View v, int listIndex, long arg3) {
                 Intent detailsIntent = new Intent(MainActivity.this, StudentDetailActivity.class);
-                detailsIntent.putExtra("studentID", database.getStudentModels().get(listIndex).getId());
+                Bundle detailsBundle = new Bundle();
+
+                //Using index of list item, look at the item's data model and get the student object
+                StudentModel currStudent = database.getStudentModels().get(listIndex);
+                String studentID = currStudent.getId();
+                String studentName = currStudent.getName();
+                int studentAge = currStudent.getAge();
+
+                //One item in intent
+                detailsIntent.putExtra("studentID", studentID);
+
+                //The rest will go into the bundle
+                detailsBundle.putString("name", studentName);
+                detailsBundle.putInt("age", studentAge);
+
+                //Put the bundle in the intent
+                detailsIntent.putExtra("bundle", detailsBundle);
 
                 startActivity(detailsIntent);
             }

@@ -35,7 +35,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="end"
             android:layout_weight="0.9"
-            android:hint="@string/name"
+            android:hint="@string/stuName"
             android:textAlignment="textEnd"
             android:textSize="24sp" />
 

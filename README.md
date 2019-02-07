@@ -25,4 +25,4 @@ CourseModel.java and StudentModel.java are objects used by the database to descr
 
 - Layout
 
-activity_main.xml and activity_student_detail.xml are the pages associated with the activities in the Display folder. The former has content_main.xml nested inside it. listview_item.xml dictates the layout of cells in the ListView items.
+activity_main.xml and activity_student_details.xml are the pages associated with the activities in the Display folder. The former has content_main.xml nested inside it. listview_item.xml dictates the layout of cells in the ListView items.

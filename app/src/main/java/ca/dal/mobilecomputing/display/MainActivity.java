@@ -31,6 +31,25 @@ public class MainActivity extends AppCompatActivity {
         studentList.setAdapter(new StudentCourseAdapter(mActivity, database.getStudentModels(), true));
 
 
+        studentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adaptor, View v, int listIndex, long arg3) {
+                Intent intent = new Intent(MainActivity.this, StudentDetailActivity.class);
+                Bundle bund = new Bundle();
+
+                StudentModel stu = database.getStudentModels().get(listIndex);
+
+                intent.putExtra("studentID", stu.getId());
+
+                bund.putInt("age", stu.getAge());
+                bund.putString("name", stu.getName());
+
+                intent.putExtra("bundle", bund);
+
+                startActivity(intent);
+            }
+        });
+
     }
 
 }

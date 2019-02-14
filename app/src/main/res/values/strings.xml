@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Lab 4</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="B00">ID: </string>
+    <string name="stuName">Name: </string>
+    <string name="age">Age: </string>
 </resources>

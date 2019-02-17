@@ -55,7 +55,7 @@ public class Database {
             Set<Integer> totalCourses = generateCourse(2, courses.size());
             for (Integer course : totalCourses) {
                 CourseModel courseModel = new CourseModel();
-                courseModel.setId(model.getId());
+                courseModel.setId(model.getStudent_Id());
                 courseModel.setCourseId(coursesList.get(course));
                 courseModel.setCourseName(COURSES_DATA.get(coursesList.get(course)));
                 courseModelList.add(courseModel);

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent detailsIntent = new Intent(MainActivity.this, StudentDetailActivity.class);
                 Bundle detailsBundle = new Bundle();
                 StudentModel currStudent = database.getStudentModels().get(listIndex);
-                String studentID = currStudent.getId();
+                String studentID = currStudent.getStudent_Id();
                 String studentName = currStudent.getName();
                 int studentAge = currStudent.getAge();
 

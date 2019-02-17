@@ -81,7 +81,7 @@ public class StudentCourseAdapter extends BaseAdapter {
      */
     private void setStudentData(ViewHolder viewholder, StudentModel studentModel) {
         viewholder.textName.setText(studentModel.getName());
-        viewholder.textId.setText(studentModel.getId());
+        viewholder.textId.setText(studentModel.getStudent_Id());
     }
 
     /**

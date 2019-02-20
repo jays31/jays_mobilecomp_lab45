@@ -1,5 +1,7 @@
 package ca.dal.mobilecomputing.db;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -13,6 +15,7 @@ import ca.dal.mobilecomputing.model.StudentModel;
 
 public class Database {
 
+    private final StudentDataQueries mStudentDataQueries;
     private static final Map<String, String> STUDENT_NAME = new HashMap<>();
     private static final Map<String, Integer> STUDENT_AGE = new HashMap<>();
     private static final Map<String, String> COURSES_DATA = new HashMap<>();
@@ -41,12 +44,19 @@ public class Database {
     }
 
 
-    public Database() {
-        for (String key : STUDENT_NAME.keySet()) {  //NAME and AGE use the same keyset.
-            studentModelList.add(new StudentModel(key, STUDENT_NAME.get(key), STUDENT_AGE.get(key)));
+    public Database(Context context) {
+        mStudentDataQueries = new StudentDataQueries(context);
+        mStudentDataQueries.open();
+
+        if (mStudentDataQueries.isAppRunningFirstTime()) {
+            for (String key : STUDENT_NAME.keySet()) {  //NAME and AGE use the same keyset.
+                mStudentDataQueries.createStudent(new StudentModel(key, STUDENT_NAME.get(key),
+                        STUDENT_AGE.get(key)));
+            }
         }
 
-        // Create a list of courses
+        studentModelList = mStudentDataQueries.getAllStudents();
+
         Set<String> courses = COURSES_DATA.keySet();
         List<String> coursesList = new ArrayList<String>();
         coursesList.addAll(courses);
@@ -100,5 +110,22 @@ public class Database {
             courseIndexList.add(random.nextInt(totalCoursesPerStudent));
         }
         return courseIndexList;
+    }
+
+    public boolean updateStudent (StudentModel studentNew) {
+        return mStudentDataQueries.updateStudent(studentNew);
+    }
+
+    public StudentModel getStuModelByID (String studentID) {
+        for (StudentModel curr: studentModelList) {
+            if (curr.getStudent_Id().equals(studentID)){
+                return curr;
+            }
+        }
+        return null;
+    }
+
+    public void closeDatabase() {
+        mStudentDataQueries.close();
     }
 }

@@ -16,17 +16,19 @@ import ca.dal.mobilecomputing.model.StudentModel;
 public class MainActivity extends AppCompatActivity {
 
     private Activity mActivity;
+    private Database database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mActivity = this;
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ListView studentList = findViewById(R.id.listview_students);
-        final Database database = new Database();
 
+        ListView studentList = findViewById(R.id.listview_students);
+        database = new Database(mActivity);
         studentList.setAdapter(new StudentCourseAdapter(mActivity, database.getStudentModels(), true));
 
         studentList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -46,5 +48,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(detailsIntent);
             }
         });
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        database.closeDatabase();
     }
 }

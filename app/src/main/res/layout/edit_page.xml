@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
@@ -13,7 +13,7 @@
         >
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbar2"
             app:title="@string/app_name"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -31,37 +31,7 @@
         >
 
         <TextView
-            android:id="@+id/lblName"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:layout_weight="0.9"
-            android:hint="@string/stuName"
-            android:textAlignment="textEnd"
-            android:textSize="24sp"
-            />
-
-        <TextView
-            android:id="@+id/lblStudentName"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="0.4"
-            android:textSize="24sp"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="15dp"
-        >
-
-        <TextView
-            android:id="@+id/lblB00"
+            android:id="@+id/lblB002"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_gravity="end"
@@ -72,7 +42,38 @@
             />
 
         <TextView
-            android:id="@+id/lblStudentB00"
+            android:id="@+id/lblStudentB002"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.4"
+            android:textSize="24sp"
+            android:inputType="text"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        >
+
+        <TextView
+            android:id="@+id/lblName2"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_weight="0.9"
+            android:hint="@string/stuName"
+            android:textAlignment="textEnd"
+            android:textSize="24sp"
+            />
+
+        <EditText
+            android:id="@+id/lblStudentName2"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
@@ -91,7 +92,7 @@
         >
 
         <TextView
-            android:id="@+id/lblAge"
+            android:id="@+id/lblAge2"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_gravity="end"
@@ -101,36 +102,28 @@
             android:textSize="24sp"
             />
 
-        <TextView
-            android:id="@+id/lblStudentAge"
+        <EditText
+            android:id="@+id/lblStudentAge2"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_weight="0.4"
             android:textSize="24sp"
+            android:inputType="number"
             />
 
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/listview_courses"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:dividerHeight="1dp"
-        android:isScrollContainer="false"
-        android:scrollbars="none"
-        />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/editFab"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/save2"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|end"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_edit_black_24dp"
-        app:backgroundTint="@color/colorPrimary"
-        app:rippleColor="@color/design_default_color_primary_dark"
-        />
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-light"
+        android:text="Save"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
